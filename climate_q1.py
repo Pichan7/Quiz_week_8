@@ -1,4 +1,25 @@
 import matplotlib.pyplot as plt
+import sqlite3
+
+con = sqlite3.connect("climate.db)
+cur = con.cursor()
+
+cur.execute("CREATE TABLE climate(year, co2, temperature)")
+cur.execute("""
+    INSERT INTO climate VALUES
+        (1950, 250, 14.1),
+        (1960, 265, 15.5),
+        (1970,272,16.3),
+        (1980,260,18.1),
+        (1990,300,17.3),
+        (2000,320,19.1),
+        (2010,389,20.2)
+""")
+
+con.commit()
+
+
+                      
         
 years = []
 co2 = []
